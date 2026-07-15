@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CONVRTD Brandify — Document Studio</title>
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="glow"></div>
+    <main class="shell">
+      <header class="top">
+        <span class="wordmark"><i class="fn"></i>CONVRTD</span>
+        <span class="top-tag">The best ads don’t look like ads.</span>
+      </header>
+
+      <section class="hero">
+        <p class="eyebrow"><span>/</span>&nbsp; Document Studio</p>
+        <h1 class="display">Turn any document into a<br /><span class="lw">branded</span> CONVRTD PDF.</h1>
+        <p class="lead">Drop in a Word or PDF file. Get back a polished, on-brand PDF — your words, exactly, re-rendered in the CONVRTD design system.</p>
+      </section>
+
+      <!-- STEP 1: upload + options -->
+      <section class="panel" id="panel">
+        <form id="form">
+          <label id="drop" class="drop" for="file">
+            <input id="file" name="file" type="file" accept=".docx,.pdf" hidden />
+            <div class="drop-inner">
+              <div class="drop-icon"></div>
+              <div class="drop-text"><b id="fname">Drop your .docx or .pdf here</b><span>or click to browse — max 25 MB</span></div>
+            </div>
+          </label>
+
+          <div class="controls">
+            <div class="control">
+              <span class="control-label">Mode</span>
+              <div class="seg" data-name="mode">
+                <button type="button" data-val="rebuild" class="on">Rebuild</button>
+                <button type="button" data-val="restyle">Restyle</button>
+              </div>
+              <p class="hint" id="mode-hint">Rebuild — lay the content onto branded pages.</p>
+            </div>
+            <div class="control">
+              <span class="control-label">Theme</span>
+              <div class="seg" data-name="theme">
+                <button type="button" data-val="charcoal" class="on">Charcoal</button>
+                <button type="button" data-val="ivory">Ivory</button>
+              </div>
+              <p class="hint" id="theme-hint">Charcoal — the brand's dominant dark.</p>
+            </div>
+            <div class="control">
+              <span class="control-label">Page</span>
+              <div class="seg" data-name="pageSize">
+                <button type="button" data-val="A4" class="on">A4</button>
+                <button type="button" data-val="Letter">Letter</button>
+              </div>
+              <p class="hint">Output paper size.</p>
+            </div>
+          </div>
+
+          <button id="go" class="go" type="submit" disabled><span class="go-label">Generate branded PDF</span></button>
+        </form>
+      </section>
+
+      <!-- STEP 2: progress -->
+      <section class="panel progress-card" id="progress-card" hidden>
+        <div class="progress-head">
+          <p class="eyebrow"><span>/</span>&nbsp; Working</p>
+          <span class="progress-pct" id="progress-pct">0%</span>
+        </div>
+        <div class="bar"><div class="bar-fill" id="bar-fill"></div></div>
+        <p class="progress-label" id="progress-label">Starting…</p>
+        <ol class="steps" id="steps">
+          <li data-stage="extract">Extract content</li>
+          <li data-stage="structure">Understand structure</li>
+          <li data-stage="compose">Apply the brand</li>
+          <li data-stage="render">Render the PDF</li>
+          <li data-stage="upload">Publish the link</li>
+        </ol>
+      </section>
+
+      <!-- STEP 3: result -->
+      <section class="panel result-card" id="result" hidden>
+        <div class="result-check"></div>
+        <p class="eyebrow"><span>/</span>&nbsp; Ready</p>
+        <h2 class="result-title">Your branded PDF is ready.</h2>
+        <p class="result-meta" id="result-meta"></p>
+        <div class="result-actions">
+          <a id="download" class="go" download>Download PDF</a>
+          <button id="reset" class="ghost" type="button">New document</button>
+        </div>
+        <iframe id="preview" class="preview" title="PDF preview" hidden></iframe>
+      </section>
+
+      <p id="status" class="status"></p>
+
+      <footer class="foot">
+        <span>CONVRTD &copy; 2026</span>
+        <span>Document Studio · v1</span>
+      </footer>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

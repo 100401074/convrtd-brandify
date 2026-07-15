@@ -1,0 +1,8 @@
+node_modules
+.work
+.git
+.env
+samples/outputs
+samples/shots
+docs
+*.log
